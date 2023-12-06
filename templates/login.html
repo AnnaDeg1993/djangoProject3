@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>Добро пожаловать {{ new_user.first_name }}!</h1>
+    <p>Ваша учетная запись зарегистрирована. Теперь вы можете войти.</p>
+    <form action="." method="post">
+        {{ user_form.as_p }}
+        {% csrf_token %}
+
+    Введите ваш email: <input type="email" name="email">
+    <br><br>
+    Введите ваш пароль: <input name="password" type="password">
+    <br><br>
+    <button class="btn btn-outline-success ko" id="btn2">Войти</button>
+
+    </form>
+{% endblock %}

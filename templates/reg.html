@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+    <h1>Зарегистрироваться</h1>
+    <form action="" method="post">
+        {{ user_form.as_p }}
+
+        <p>Пожалуйста, зарегистрируйтесь используя следующую форму:</p>
+        Введите ваш email: <input name="email">
+        <br><br>
+        Введите ваш пароль: <input id="p1" name="password" type="password">
+        <br><br>
+        Повторите ваш пароль: <input id="p2" type="password">
+        <br><br>
+        <p><button class="btn btn-outline-success ko" id="btn1">Зарегестрироваться</button></p>
+    </form>
+
+<script>
+    btn1.onclick = (event) =>
+    {
+        if (p1.value !== p2.value) {
+            event.preventDefault()
+            alert('Пароли не совпадают!')
+            return
+        }
+    }
+
+</script>
+{% endblock %}

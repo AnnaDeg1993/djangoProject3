@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Обратная связь{% endblock %}
+{% block content %}
+
+    <h1>Связаться с нами</h1>
+    <form action="" method="post">
+        {{ user_form.as_p }}
+
+        <p>Спасибо, что посетили наш сайт. Для связи с нами нажмите ниже.</p>
+        <button id="tg">Запустить бота</button>
+    </form>
+
+<script>
+    tg.onclick = (e) => {
+        e.preventDefault()
+        let xhr = new XMLHttpRequest();
+  xhr.open("POST", "http://localhost:8000/bot/");
+  xhr.send();
+  tg.style.visibility = 'hidden'
+    }
+</script>
+{% endblock %}

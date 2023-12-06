@@ -5,12 +5,17 @@ from django.urls import path, include
 
 from djangoProject2 import settings
 from news import views
+from news.views import contact, login, show_post, logout_user
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
-    path('about/', views.about),
-
+    path('contact/', views.contact, name='contact'),
+    path('login/', views.login, name='login'),
+    path('logout/', logout_user, name='logout'),
+    path('post/<int:post_id>/', show_post, name='post'),
+    path('register/', views.reg, name='register'),
+    path('bot/', views.bot),
 
 ]
 
