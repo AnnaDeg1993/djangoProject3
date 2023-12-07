@@ -1,6 +1,6 @@
 import asyncio
 from news.bot import Base, main, engine
-from django.contrib.auth import login, logout
+
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.decorators.csrf import csrf_exempt
 from .models import *
@@ -48,13 +48,8 @@ def login(request):
         email = request.POST['email']
         password = request.POST['password']
         data = News.objects.all()
-        return HttpResponse('Добро пожаловать! Вы вошли в свою учетную запись.')
+        return render(request, 'aboutme.html')
     return render(request, 'login.html')
-
-
-def logout_user(request):
-    logout(request)
-    return redirect('login')
 
 
 @csrf_exempt

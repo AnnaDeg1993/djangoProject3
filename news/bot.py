@@ -63,8 +63,11 @@ async def reg_step1(message: types.Message):
 async def reg_step2(message: types.Message):
     async with lock:
         DB.answer_data['password'] = message.text
-    await bot.send_message(message.from_user.id, text='Ваш email зарегестрирован!')
-    await RegisterMessages.next()
+    await bot.send_message(message.from_user.id, text='Ваш email зарегестрирован как: ' + DB.answer_data['email'])
+    #await RegisterMessages.next()
+    #await state.finish()
+    session.add(Users(DB.answer_data['email'], DB.answer_data['password']))
+    session.commit()
 
 
 #@dp.message_handler(content_types='text', state=RegisterMessages.step3)

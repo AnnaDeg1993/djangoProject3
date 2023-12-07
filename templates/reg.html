@@ -5,10 +5,9 @@
 
     <h1>Зарегистрироваться</h1>
     <form action="" method="post">
-        {{ user_form.as_p }}
 
         <p>Пожалуйста, зарегистрируйтесь используя следующую форму:</p>
-        Введите ваш email: <input name="email">
+        Введите ваш email: <input name="email" type="email">
         <br><br>
         Введите ваш пароль: <input id="p1" name="password" type="password">
         <br><br>
@@ -23,7 +22,7 @@
         if (p1.value !== p2.value) {
             event.preventDefault()
             alert('Пароли не совпадают!')
-            return
+
         }
     }
 

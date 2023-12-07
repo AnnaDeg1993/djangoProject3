@@ -4,9 +4,8 @@
 
     <h1>Добро пожаловать {{ new_user.first_name }}!</h1>
     <p>Ваша учетная запись зарегистрирована. Теперь вы можете войти.</p>
-    <form action="." method="post">
-        {{ user_form.as_p }}
-        {% csrf_token %}
+    <form action="" method="post">
+
 
     Введите ваш email: <input type="email" name="email">
     <br><br>
