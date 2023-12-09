@@ -6,6 +6,8 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.dispatcher.storage import FSMContext
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram import types
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+from django.forms import Form
 from sqlalchemy import Column, Integer, String, create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker, declarative_base
 
@@ -68,6 +70,7 @@ async def reg_step2(message: types.Message):
     #await state.finish()
     session.add(Users(DB.answer_data['email'], DB.answer_data['password']))
     session.commit()
+
 
 
 #@dp.message_handler(content_types='text', state=RegisterMessages.step3)
